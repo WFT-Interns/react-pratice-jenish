@@ -23,7 +23,7 @@ function Login() {
 
     return (
         <>
-            <ThemeProvider theme={darkTheme}>
+            {/* <ThemeProvider theme={darkTheme}> */}
                 <CssBaseline />
                 <div className="card mt-5">
                     
@@ -49,7 +49,7 @@ function Login() {
                             <h4>Password : {password}</h4>
                         </div>
                     </div>)}
-            </ThemeProvider>
+            {/* </ThemeProvider> */}
         </>
     );
 }
