@@ -5,19 +5,18 @@ import CssBaseline from "@mui/material/CssBaseline";
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { FormControl, InputLabel, MenuItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { rootShouldForwardProp } from "@mui/material/styles/styled";
 
-const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-        text: 'disabled',
-    },
-});
+
+// const darkTheme = createTheme({
+//     palette: {
+//         mode: 'dark',
+//         text: 'disabled',
+//     },
+// });
 
 
 function APIdata() {
     const [post, setPost] = useState("");
-    const [postNumber, setPostNumber] = useState("");
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/posts/3').then((response) => {
@@ -25,16 +24,27 @@ function APIdata() {
         });
     }, []);
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setPostNumber(event.target.value);
-    };
+    // handle function
+    // const handleChange = (event: SelectChangeEvent) => {
+    //     setPostNumber(event.target.value);
+    // };
+
 
     return (
         <>
             {/* <ThemeProvider theme={darkTheme}> */}
                 <CssBaseline />
-
                 <div className="card">
+                    <label>post ID: {post.id}</label>
+                    <label><h2>Post Heading</h2>{post.title}</label>
+                    <label><h3>Post Body</h3>{post.body}</label>
+                </div>
+
+
+
+
+                {/* Table */}
+                {/* <div className="card">
                     <label>Select Post:</label>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                         <InputLabel id="select-post">1</InputLabel>
@@ -61,19 +71,21 @@ function APIdata() {
                             </TableHead>
                             <TableBody>
                                 {rows.map((row) => (
-                                    <TableRow key={row.name} sx={{'&:last-child td, &:last-child th': {border:0}}}></TableRow>
+                                    <TableRow key={row.name} sx={{'&:last-child td, &:last-child th': {border:0}}}>
+                                        <TableCell component="th" scope="row">
+                                            {row.name}
+                                        </TableCell>
+                                        <TableCell>{post.id}</TableCell>
+                                        <TableCell>{user.id}</TableCell>
+                                        <TableCell>{post.title}</TableCell>
+                                        <TableCell>{post.body}</TableCell>
+                                    </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
-
                     </TableContainer>
-
-                    <label>User id: </label>
-                    <label>{post.id}</label>
-                    <label>{post.title}</label>
-                    <label>{post.body}</label>
                 </div>
-            {/* </ThemeProvider> */}
+            </ThemeProvider> */}
         </>
     );
 }
