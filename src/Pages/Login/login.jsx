@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Container } from "@mui/system";
-
-
-const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
-});
-
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [step, setStep] = useState(0);
+    const navigate = useNavigate();
 
     const handleReset = () => {
         setUsername("");
@@ -22,17 +15,16 @@ function Login() {
         setStep(0);
     }
 
-    const handleSubmit = () => {
-        
+    const navigateStarwar = () => {
+        navigate("/StarWar");
     }
 
     return (
         <>
-            {/* <ThemeProvider theme={darkTheme}> */}
-                <CssBaseline />
-                <Container>
+            <CssBaseline />
+            <Container>
                 <div className="card mt-5">
-                    
+
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" value={username} class="form-control" id="InputUsername" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
@@ -42,7 +34,7 @@ function Login() {
                         <input type="password" value={password} class="form-control" id="InputPassword1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div class="clickbtn">
-                        <button type="button" class="btn btn-primary mt-3" onClick={() => setStep(1)}>Submit</button>
+                        <button type="button" class="btn btn-primary mt-3" onClick={navigateStarwar}>Submit</button>
                         <button type="reset" class="btn btn-danger mt-3" onClick={handleReset}>Reset</button>
                     </div>
                 </div>
@@ -55,9 +47,7 @@ function Login() {
                             <h4>Password : {password}</h4>
                         </div>
                     </div>)}
-                </Container>
-                
-            {/* </ThemeProvider> */}
+            </Container>
         </>
     );
 }
