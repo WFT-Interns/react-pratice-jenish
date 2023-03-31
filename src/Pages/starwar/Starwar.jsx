@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
-import { Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import axiosInstance from "../../Components/axiosInstance";
+import { Container } from "@mui/material";
+import StarWarTable from "../../Components/api-table";
 
 
 // const NewsData = () => {
@@ -37,28 +35,10 @@ import axiosInstance from "../../Components/axiosInstance";
 // const baseURL = "https://swapi.dev/api/planets/";
 
 function Starwar() {
-    const { data } = useQuery("starWarData", () =>
-
-        axiosInstance.get("planets/")
-            .then((res) => {
-                console.log(res.data)
-                return res.data
-            }
-            ),
-    )
-
     return (
         <>
             <Container>
-                <div className="star-war">
-                    {data && data.results.map((sWar) => (
-                        <>
-                            
-                            <div>Planets :{sWar.name}</div>
-                            <div>Diameter :{sWar.diameter}</div>
-                        </>
-                    ))}
-                </div>
+                {<StarWarTable/>}
             </Container>
         </>
     )                                       
