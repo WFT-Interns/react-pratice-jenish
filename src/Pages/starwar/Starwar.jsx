@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import StarWarTable from "../../Components/api-table";
+import SearchBar from "../../Components/search-data";
 
 
 // const NewsData = () => {
@@ -32,12 +33,13 @@ import StarWarTable from "../../Components/api-table";
 //         </>
 //     )
 // }
-// const baseURL = "https://swapi.dev/api/planets/";
+
 
 function Starwar() {
     return (
         <>
             <Container>
+                {<SearchBar/>}
                 {<StarWarTable/>}
             </Container>
         </>
