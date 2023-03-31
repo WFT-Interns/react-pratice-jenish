@@ -1,14 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import Login from './Pages/login';
-import APIdata from './Pages/getData';
+import { Route, Router, Routes} from 'react-router-dom';
+import Starwar from './Pages/starwar/Starwar';
+import Login from './Pages/Login/login';
+
 
 function App() {
   return (
-    <>
-      {/* < Login/> */}
-      < APIdata/>
-    </>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Login/>} />
+        <Route path='/Starwar' element={<Starwar/>} />
+      </Routes>
+    </div>
   );
 }
 
