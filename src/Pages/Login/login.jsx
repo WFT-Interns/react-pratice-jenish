@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Container } from "@mui/system";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import './login.css'
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -24,14 +25,13 @@ function Login() {
             <CssBaseline />
             <Container>
                 <div className="card mt-5">
-
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" value={username} class="form-control" id="InputUsername" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" value={username} id="InputUsername" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
                     </div>
                     <div class="form-group">
-                        <label for="Password1">Password</label>
-                        <input type="password" value={password} class="form-control" id="InputPassword1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                        <label for="Password1" class="form-label">Password</label>
+                        <input type="password" value={password} id="InputPassword1" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div class="clickbtn">
                         <button type="button" class="btn btn-primary mt-3" onClick={navigateStarwar}>Submit</button>
@@ -40,13 +40,13 @@ function Login() {
                 </div>
 
 
-                {step === 1 && (
+                {/* {step === 1 && (
                     <div className="card mt-5">
                         <div className="card-body ">
                             <h4>Username : {username} </h4>
                             <h4>Password : {password}</h4>
                         </div>
-                    </div>)}
+                    </div>)} */}
             </Container>
         </>
     );
