@@ -54,8 +54,8 @@ function Starwar() {
                     {data && data.results.map((sWar) => (
                         <>
                             
-                            {/* <div>Planets :{sWar.name}</div>
-                            <div>Diameter :{sWar.diameter}</div> */}
+                            <div>Planets :{sWar.name}</div>
+                            <div>Diameter :{sWar.diameter}</div>
                         </>
                     ))}
                 </div>
