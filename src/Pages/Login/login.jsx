@@ -3,6 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Container } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import './login.css'
+import Navbar from "../../Components/navbar";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -23,8 +24,9 @@ function Login() {
     return (
         <>
             <CssBaseline />
+            {<Navbar/>}
             <Container>
-                <div className="card mt-5">
+                <div class="card">
                     <div class="form-group">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" value={username} id="InputUsername" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
